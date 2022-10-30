@@ -7,7 +7,7 @@ import { theme } from "./Theme";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Container sx={{ paddingTop: "16px", paddingBottom: "16px" }}>
+      <Container maxWidth="xs" sx={{ paddingTop: "16px", paddingBottom: "16px" }}>
         <GameProvider>
           <ColorGuess />
         </GameProvider>
