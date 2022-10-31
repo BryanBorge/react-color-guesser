@@ -2,12 +2,18 @@ import { createContext, useContext, useReducer } from "react";
 import { ActionType } from "./ActionTypes";
 import { GameReducer } from "./GameReducer";
 
+export enum ColorMode {
+  HEX = "Hex",
+  RGB = "Rgb",
+}
+
 export type Store = {
-  answer?: string;
-  colors?: Array<string>;
+  answer: string;
+  colors: Array<string>;
   isWrongAnswer: boolean;
   isCorrectAnswer: boolean;
   isRoundOver: boolean;
+  colorMode: ColorMode;
 };
 
 type GameContextType = {
@@ -16,11 +22,12 @@ type GameContextType = {
 };
 
 const initialState: Store = {
-  answer: undefined,
-  colors: undefined,
+  answer: "",
+  colors: [],
   isWrongAnswer: false,
   isCorrectAnswer: false,
   isRoundOver: false,
+  colorMode: ColorMode.HEX,
 };
 
 export const GameProvider = ({ children }: { children: any }) => {
