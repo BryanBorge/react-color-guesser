@@ -18,7 +18,13 @@ export type Store = {
 
 type GameContextType = {
   store: Store;
-  dispatch({ type, payload }: { type: ActionType; payload: string | Array<string> | boolean }): void;
+  dispatch({
+    type,
+    payload,
+  }: {
+    type: ActionType;
+    payload: string | Array<string> | boolean | ColorMode;
+  }): void;
 };
 
 const initialState: Store = {

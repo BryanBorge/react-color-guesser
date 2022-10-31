@@ -1,11 +1,11 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export enum NeutralColors {
   Main = "#64748b",
   ContrastText = "#fff",
 }
 
-export const theme = createTheme({
+const theme = createTheme({
   palette: {
     neutral: {
       main: NeutralColors.Main,
@@ -60,7 +60,7 @@ export const theme = createTheme({
     },
   },
 });
-
+export const themeWithResponsiveFontSizes = responsiveFontSizes(theme);
 declare module "@mui/material/styles" {
   interface Palette {
     neutral: Palette["primary"];

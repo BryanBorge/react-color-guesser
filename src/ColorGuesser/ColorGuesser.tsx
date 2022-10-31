@@ -26,7 +26,7 @@ export const ColorGuess = () => {
           <Grid container spacing={2}>
             {colors?.map((color: string) => {
               return (
-                <Grid item xs={6} key={color}>
+                <Grid item xs={12} sm={6} key={color}>
                   <AnswerButton color={color} onClick={() => CheckAnswer(color)} />
                 </Grid>
               );
