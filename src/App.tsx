@@ -7,7 +7,7 @@ import { themeWithResponsiveFontSizes } from "./Theme";
 function App() {
   return (
     <ThemeProvider theme={themeWithResponsiveFontSizes}>
-      <Container maxWidth="xs" sx={{ paddingTop: "16px", paddingBottom: "16px" }}>
+      <Container maxWidth="xs">
         <GameProvider>
           <ColorGuess />
         </GameProvider>
