@@ -15,7 +15,8 @@ export const GameReducer = (store: Store, action: Action) => {
     case ActionType.SET_IS_WRONG:
       return { ...store, isWrongAnswer: action.payload };
     case ActionType.SET_COLOR_MODE:
-      if (action.payload === ColorMode.HEX) {
+      //dont set state if were already in hex mode
+      if (action.payload === ColorMode.HEX && store.colorMode !== ColorMode.HEX) {
         return {
           ...store,
           colorMode: ColorMode.HEX,
@@ -23,14 +24,16 @@ export const GameReducer = (store: Store, action: Action) => {
           answer: rgbToHex(store.answer),
         };
       }
-      if (action.payload === ColorMode.RGB) {
+      //dont set state if were already in rgb mode
+      if (action.payload === ColorMode.RGB && store.colorMode !== ColorMode.RGB) {
         return {
           ...store,
           colorMode: ColorMode.RGB,
           colors: store.colors?.map(color => hexToRgb(color)),
           answer: hexToRgb(store.answer),
         };
-      } else return store;
+      }
+      return store;
     case ActionType.SET_GAME_MODE:
       return { ...store, gameMode: action.payload };
     default:
