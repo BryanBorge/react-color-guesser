@@ -34,11 +34,11 @@ export const ColorDisplay = () => {
           spacing={1}
           sx={{ ":hover": { cursor: "pointer" } }}
           onClick={() => RestartGame()}>
-          <Typography variant="h5" sx={{ color: theme.palette.getContrastText(answer) }} py={2}>
+          <Typography variant="h4" sx={{ color: theme.palette.getContrastText(answer) }} py={2}>
             Correct!
           </Typography>
-          <IconButton sx={{ color: theme.palette.getContrastText(answer) }}>
-            <RestartAltIcon />
+          <IconButton sx={{ color: theme.palette.getContrastText(answer) }} size="large">
+            <RestartAltIcon fontSize="large" />
           </IconButton>
         </Stack>
       </Zoom>
