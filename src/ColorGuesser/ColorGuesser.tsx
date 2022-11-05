@@ -9,7 +9,7 @@ import { ColorDisplayHeader } from "../Components/ColorDisplayHeader";
 
 export const ColorGuess = () => {
   const {
-    store: { answer, colors, isWrongAnswer, isCorrectAnswer },
+    store: { colors, answer },
   } = useGameContext();
   const { RestartGame, CheckAnswer } = useColorGuesser();
 
@@ -18,11 +18,15 @@ export const ColorGuess = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!answer) {
+    return <></>;
+  }
+
   return (
     <>
       <ColorDisplayHeader />
       <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
-        <ColorDisplay answer={answer} />
+        <ColorDisplay />
         <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
           <Grid container spacing={2}>
             {colors?.map((color: string, index: number) => {
@@ -33,34 +37,6 @@ export const ColorGuess = () => {
               );
             })}
           </Grid>
-          {isWrongAnswer && (
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Zoom in={isWrongAnswer} mountOnEnter unmountOnExit>
-                <Typography color="error" variant="h5" py={2}>
-                  Try Again
-                </Typography>
-              </Zoom>
-            </Stack>
-          )}
-          {isCorrectAnswer && (
-            <Zoom in={isCorrectAnswer} mountOnEnter unmountOnExit>
-              <Tooltip title="Start a new round" placement="bottom">
-                <Stack
-                  alignItems="center"
-                  direction="row"
-                  spacing={1}
-                  onClick={() => RestartGame()}
-                  sx={{ ":hover": { cursor: "pointer" } }}>
-                  <Typography variant="h5" color="success.main" py={2}>
-                    Correct!
-                  </Typography>
-                  <IconButton color="success" onClick={() => RestartGame()}>
-                    <RestartAltIcon />
-                  </IconButton>
-                </Stack>
-              </Tooltip>
-            </Zoom>
-          )}
         </Box>
       </Box>
     </>
