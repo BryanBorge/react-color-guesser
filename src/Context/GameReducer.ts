@@ -30,6 +30,8 @@ export const GameReducer = (store: Store, action: Action) => {
           answer: hexToRgb(store.answer),
         };
       }
+    case ActionType.SET_GAME_MODE:
+      return { ...store, gameMode: action.payload };
     default:
       return store;
   }

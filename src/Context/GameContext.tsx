@@ -7,6 +7,12 @@ export enum ColorMode {
   RGB = "Rgb",
 }
 
+export enum GameMode {
+  Freeplay = "Freeplay",
+  Rounds = "Rounds",
+  SpecificColor = "Specific Color",
+}
+
 export type Store = {
   answer: string;
   colors: Array<string>;
@@ -14,6 +20,7 @@ export type Store = {
   isCorrectAnswer: boolean;
   isRoundOver: boolean;
   colorMode: ColorMode;
+  gameMode: GameMode;
 };
 
 type GameContextType = {
@@ -23,7 +30,7 @@ type GameContextType = {
     payload,
   }: {
     type: ActionType;
-    payload: string | Array<string> | boolean | ColorMode;
+    payload: string | Array<string> | boolean | ColorMode | GameMode;
   }): void;
 };
 
@@ -34,6 +41,7 @@ const initialState: Store = {
   isCorrectAnswer: false,
   isRoundOver: false,
   colorMode: ColorMode.HEX,
+  gameMode: GameMode.Freeplay,
 };
 
 export const GameProvider = ({ children }: { children: any }) => {
