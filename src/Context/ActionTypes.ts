@@ -6,9 +6,11 @@ export enum ActionType {
   SET_IS_WRONG = "SET_IS_WRONG",
   SET_IS_CORRECT = "SET_IS_CORRECT",
   SET_ROUND_OVER = "SET_ROUND_OVER",
+  SET_ROUND_DATA = "SET_ROUND_DATA",
+  SET_CURRENT_ROUND = "SET_CURRENT_ROUND",
+  SET_NUMBER_OF_ROUNDS = "SET_NUMBER_OF_ROUNDS",
   SET_COLOR_MODE = "SET_COLOR_MODE",
   SET_GAME_MODE = "SET_GAME_MODE",
-  SET_ROUNDS = "SET_ROUNDS",
   SET_SPECIFIC_COLOR = "SET_SPECIFIC_COLOR",
 }
 
@@ -48,7 +50,7 @@ export interface GameModeAction {
 }
 
 export interface RoundAction {
-  type: ActionType.SET_ROUNDS;
+  type: ActionType.SET_NUMBER_OF_ROUNDS;
   payload: number;
 }
 

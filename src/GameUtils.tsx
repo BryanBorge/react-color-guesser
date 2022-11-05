@@ -1,3 +1,13 @@
+type ColorsWithAnswer = {
+  answer: string;
+  colors: Array<string>;
+};
+
+type RoundData = {
+  roundNumber: number;
+  data: ColorsWithAnswer;
+};
+
 // Valid hex digits are 0-9 and A-F
 const hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 
@@ -17,7 +27,7 @@ const generateRandomColor = () => {
  * Returns an object containing the answer and the color array
  * @returns answer: string, colors: string[]
  */
-export const generateColorsWithAnswer = () => {
+export const generateColorsWithAnswer = (): ColorsWithAnswer => {
   const answer = `#${generateRandomColor()}`;
   //Randomly sort the colors so the answer isnt always first
   const colors = [
@@ -28,4 +38,19 @@ export const generateColorsWithAnswer = () => {
   ].sort(() => 0.5 - Math.random());
 
   return { answer, colors };
+};
+
+/**
+ * Generates x sets of colors and answers for x number of rounds
+ * @param numberOfRounds
+ * @returns
+ */
+export const generateColorsForRounds = (numberOfRounds: number): Array<RoundData> => {
+  let data: Array<RoundData> = [];
+
+  for (let i = 0; i < numberOfRounds; i++) {
+    data.push({ roundNumber: i + 1, data: generateColorsWithAnswer() });
+  }
+
+  return data;
 };
