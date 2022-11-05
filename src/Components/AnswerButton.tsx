@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, useTheme, useMediaQuery, Grow, Slide, Typography } from "@mui/material";
+import { Button, useTheme, useMediaQuery, Slide } from "@mui/material";
 import { NeutralColors } from "../Theme";
 import CheckCircleTwoToneIcon from "@mui/icons-material/CheckCircleTwoTone";
 import { useGameContext } from "../Context/GameContext";

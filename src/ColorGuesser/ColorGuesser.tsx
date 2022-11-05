@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography, IconButton, Tooltip, Slide, Zoom } from "@mui/material";
+import { Box, Grid, Stack, Typography, IconButton, Tooltip, Zoom } from "@mui/material";
 import { useEffect } from "react";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { useGameContext } from "../Context/GameContext";
@@ -15,6 +15,7 @@ export const ColorGuess = () => {
 
   useEffect(() => {
     RestartGame();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
