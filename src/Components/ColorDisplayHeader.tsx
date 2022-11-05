@@ -6,6 +6,7 @@ import { useColorGuesser } from "../ColorGuesser/useColorGuesser";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { ColorMode, useGameContext } from "../Context/GameContext";
 import { ActionType } from "../Context/ActionTypes";
+import MenuIcon from "@mui/icons-material/Menu";
 
 type ColorModeChip = {
   type: ColorMode;
@@ -46,6 +47,9 @@ export const ColorDisplayHeader = () => {
         direction="row"
         alignItems="center"
         mx={theme.spacing(1)}>
+        <IconButton>
+          <MenuIcon />
+        </IconButton>
         <Stack direction="row" spacing={1}>
           {ColorModes.map(colorMode => {
             return (
