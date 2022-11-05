@@ -41,6 +41,8 @@ export const ColorDisplayHeader = () => {
           {ColorModes.map(colorMode => {
             return (
               <Chip
+                key={colorMode.type}
+                color="neutral"
                 variant={activeChip === colorMode.type ? "filled" : "outlined"}
                 label={colorMode.type}
                 onClick={() => handleClick(colorMode)}

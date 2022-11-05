@@ -84,3 +84,9 @@ declare module "@mui/material/IconButton" {
     neutral: true;
   }
 }
+
+declare module "@mui/material/Chip" {
+  interface ChipPropsColorOverrides {
+    neutral: true;
+  }
+}
