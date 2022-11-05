@@ -22,13 +22,10 @@ export const ColorGuess = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!answer) {
+  if (!answer || !colors) {
     return <></>;
   }
 
-  //  (value: React.SetStateAction<ColorMode>) => void
-
- 
   return (
     <>
       <ColorDisplayHeader />
@@ -36,7 +33,7 @@ export const ColorGuess = () => {
         <ColorDisplay />
         <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
           <Grid container spacing={2}>
-            {colors?.map((color: string, index: number) => {
+            {colors?.map((color: string) => {
               return (
                 <Grid item xs={12} sm={6} key={color}>
                   <AnswerButton color={color} onClick={() => CheckAnswer(color)} />
