@@ -1,4 +1,5 @@
-import { Button, useTheme, useMediaQuery } from "@mui/material";
+import React from "react";
+import { Button, useTheme, useMediaQuery, Grow, Slide, Typography } from "@mui/material";
 import { NeutralColors } from "../Theme";
 import CheckCircleTwoToneIcon from "@mui/icons-material/CheckCircleTwoTone";
 import { useGameContext } from "../Context/GameContext";
@@ -15,12 +16,21 @@ export const AnswerButton = ({ color, onClick }: AnswerButtonProps) => {
   const {
     store: { answer, isRoundOver },
   } = useGameContext();
+  const stackRef = React.useRef(null);
 
   return (
     <>
-      <Stack direction="row" alignItems="center" justifyContent="center" spacing={0.25}>
-        {answer === color && isRoundOver && <CheckCircleTwoToneIcon fontSize="large" color="success" />}
-        {answer !== color && isRoundOver && <CancelTwoToneIcon fontSize="large" color="error" />}
+      <Stack direction="row" alignItems="center" justifyContent="center" spacing={1} ref={stackRef}>
+        {answer === color && isRoundOver && (
+          <Slide direction="right" in={answer === color && isRoundOver} container={stackRef.current}>
+            <CheckCircleTwoToneIcon fontSize="medium" color="success" />
+          </Slide>
+        )}
+        {answer !== color && isRoundOver && (
+          <Slide direction="right" in={answer !== color && isRoundOver} container={stackRef.current}>
+            <CancelTwoToneIcon fontSize="medium" color="error" />
+          </Slide>
+        )}
         <Button
           size={smallAndDown ? "small" : "medium"}
           variant="contained"
