@@ -1,6 +1,5 @@
-import { Box, Grid, Stack, Typography, IconButton, Tooltip, Zoom } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useEffect } from "react";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { useGameContext } from "../Context/GameContext";
 import { AnswerButton } from "../Components/AnswerButton";
 import { ColorDisplay } from "../Components/ColorDisplay";
