@@ -19,14 +19,30 @@ export const HelpDialog = ({ open, handleClose }: { open: boolean; handleClose: 
         </IconButton>
       </Stack>
       <DialogContent>
-        <Stack spacing={5}>
+        <Stack spacing={3}>
+          <Stack>
+            <Typography variant="h6" sx={{ fontWeight: 600 }} gutterBottom>
+              How to Play
+            </Typography>
+            <Typography gutterBottom variant="body1" sx={{ paddingBottom: theme.spacing(1) }}>
+              A random color will be generated along with 4 neutral color buttons that contain a color code.
+              Select which color code you think is the randomly generated color.
+            </Typography>
+            <Typography gutterBottom variant="body1" sx={{ paddingBottom: theme.spacing(1) }}>
+              You can switch between Hexadecimal or RGB color modes using the drop down.
+            </Typography>
+            <Typography gutterBottom variant="body1" sx={{ paddingBottom: theme.spacing(1) }}>
+              Buttons will show their true colors after the correct answer has been selected. Have fun!
+            </Typography>
+          </Stack>
           <Stack>
             <Typography variant="h6" sx={{ fontWeight: 600 }} gutterBottom>
               Hexadecimal Colors
             </Typography>
             <Typography gutterBottom variant="body1" sx={{ paddingBottom: theme.spacing(1) }}>
               A hex color code is a 6-symbol code made of up to three 2-symbol elements. Each of the 2-symbol
-              elements expresses a red, green and blue color value from 0 to 255. Take a look at this color:
+              elements uses digits 0-9 and A-F to represent a red, green and blue color value. Take a look at
+              this color:
             </Typography>
             {/* C075d5 */}
             <Stack>
@@ -51,7 +67,28 @@ export const HelpDialog = ({ open, handleClose }: { open: boolean; handleClose: 
             <Typography variant="h6" sx={{ fontWeight: 600 }} gutterBottom>
               RGB Colors
             </Typography>
-            <Typography variant="body1">More stuff down here</Typography>
+            <Typography gutterBottom variant="body1" sx={{ paddingBottom: theme.spacing(1) }}>
+              A RGB color combines hues of red, green and blue to create different colors. Each RGB value is
+              between 0 and 255 where 0 is no color and 255 is full saturations. Take a look at this color:
+            </Typography>
+            {/* rgb(192, 117, 213) */}
+            <Stack>
+              <Stack direction="row" spacing={1} alignItems="center" sx={{ paddingBottom: theme.spacing(1) }}>
+                <Box sx={{ height: "50px", width: "50px", backgroundColor: "rgb(192, 117, 213)" }} />
+                <Typography gutterBottom variant="body1">
+                  rgb(192, 117, 213)
+                </Typography>
+              </Stack>
+              <Typography gutterBottom variant="body1" sx={{ display: "flex" }}>
+                The Red element here is 192
+              </Typography>
+              <Typography gutterBottom variant="body1" sx={{ display: "flex" }}>
+                The Green element here is 117
+              </Typography>
+              <Typography gutterBottom variant="body1" sx={{ display: "flex" }}>
+                The Blue element here is 213
+              </Typography>
+            </Stack>
           </Stack>
         </Stack>
       </DialogContent>
