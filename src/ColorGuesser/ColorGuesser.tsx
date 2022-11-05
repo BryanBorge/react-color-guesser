@@ -33,9 +33,11 @@ export const ColorGuess = () => {
             })}
           </Grid>
           {isWrongAnswer && (
-            <Typography color="error" variant="h5" py={2}>
-              Try Again
-            </Typography>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography color="error" variant="h5" py={2}>
+                Try Again
+              </Typography>
+            </Stack>
           )}
           {isCorrectAnswer && (
             <Tooltip title="Start a new round" placement="bottom">
