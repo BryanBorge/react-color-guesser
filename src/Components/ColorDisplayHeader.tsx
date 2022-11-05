@@ -13,6 +13,20 @@ type ColorModeChip = {
 
 const ColorModes = [{ type: ColorMode.HEX }, { type: ColorMode.RGB }];
 
+//Dispatch action to set color mode
+const handleClick = (
+  colorMode: ColorModeChip,
+  setActiveChip: (value: React.SetStateAction<ColorMode>) => void,
+  dispatch: ({ type, payload }: { type: ActionType; payload: string | boolean | string[] }) => void
+) => {
+  setActiveChip(colorMode.type);
+  dispatch({ type: ActionType.SET_COLOR_MODE, payload: colorMode.type });
+};
+
+/**
+ * Displays color mode chips, help and restart buttons
+ * @returns
+ */
 export const ColorDisplayHeader = () => {
   const {
     store: { colorMode },
@@ -23,11 +37,6 @@ export const ColorDisplayHeader = () => {
   const { RestartGame } = useColorGuesser();
 
   const theme = useTheme();
-
-  const handleClick = (colorMode: ColorModeChip) => {
-    setActiveChip(colorMode.type);
-    dispatch({ type: ActionType.SET_COLOR_MODE, payload: colorMode.type });
-  };
 
   return (
     <>
@@ -45,7 +54,7 @@ export const ColorDisplayHeader = () => {
                 color="neutral"
                 variant={activeChip === colorMode.type ? "filled" : "outlined"}
                 label={colorMode.type}
-                onClick={() => handleClick(colorMode)}
+                onClick={() => handleClick(colorMode, setActiveChip, dispatch)}
               />
             );
           })}

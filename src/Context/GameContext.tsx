@@ -55,4 +55,8 @@ export const GameContext = createContext<GameContextType>({
   dispatch: () => {},
 });
 
+/**
+ * Global state for the game
+ * @returns
+ */
 export const useGameContext = (): GameContextType => useContext<GameContextType>(GameContext);

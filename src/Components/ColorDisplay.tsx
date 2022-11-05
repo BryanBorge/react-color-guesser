@@ -4,6 +4,10 @@ import { useColorGuesser } from "../ColorGuesser/useColorGuesser";
 import { useGameContext } from "../Context/GameContext";
 import Zoom from "@mui/material/Zoom";
 
+/**
+ * Display answer color. When round is over displays 'Correct!' text.
+ * @returns
+ */
 export const ColorDisplay = () => {
   const { RestartGame } = useColorGuesser();
   const {

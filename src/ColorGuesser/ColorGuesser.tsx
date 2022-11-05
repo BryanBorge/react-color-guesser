@@ -6,10 +6,15 @@ import { ColorDisplay } from "../Components/ColorDisplay";
 import { useColorGuesser } from "./useColorGuesser";
 import { ColorDisplayHeader } from "../Components/ColorDisplayHeader";
 
+/**
+ * Main game component
+ * @returns
+ */
 export const ColorGuess = () => {
   const {
     store: { colors, answer },
   } = useGameContext();
+
   const { RestartGame, CheckAnswer } = useColorGuesser();
 
   useEffect(() => {
@@ -21,6 +26,9 @@ export const ColorGuess = () => {
     return <></>;
   }
 
+  //  (value: React.SetStateAction<ColorMode>) => void
+
+ 
   return (
     <>
       <ColorDisplayHeader />

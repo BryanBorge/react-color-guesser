@@ -5,17 +5,27 @@ import CheckCircleTwoToneIcon from "@mui/icons-material/CheckCircleTwoTone";
 import { useGameContext } from "../Context/GameContext";
 import CancelTwoToneIcon from "@mui/icons-material/CancelTwoTone";
 import { Stack } from "@mui/system";
+
 type AnswerButtonProps = {
   color: string;
   onClick: () => void;
 };
 
+/**
+ * Displays neutral color until correct color is selected along with a
+ * check or 'x' icon to the left when round is over
+ * @param color string
+ * @param onClick () => void
+ * @returns
+ */
 export const AnswerButton = ({ color, onClick }: AnswerButtonProps) => {
   const theme = useTheme();
   const smallAndDown = useMediaQuery(theme.breakpoints.down("sm"));
   const {
     store: { answer, isRoundOver },
   } = useGameContext();
+
+  //Used for slide transistion so it stays in its container
   const stackRef = React.useRef(null);
 
   return (

@@ -2,6 +2,15 @@ import { ActionType } from "../Context/ActionTypes";
 import { ColorMode, Store, useGameContext } from "../Context/GameContext";
 import { generateColorsWithAnswer } from "../GameUtils";
 
+/**
+ * Curried function that checks if selected color is the correct answer
+ *
+ * @param isRoundOver boolean
+ * @param answer string
+ * @param dispatch  ({ type, payload }: { type: ActionType; payload: string | boolean | string[] })
+ * @param color string
+ * @returns
+ */
 const CheckAnswer =
   (
     isRoundOver: Store["isRoundOver"],
@@ -21,6 +30,12 @@ const CheckAnswer =
     }
   };
 
+/**
+ * Curried function to reset state and generate new colors and answer
+ * @param colorMode ColorMode
+ * @param dispatch ({ type, payload }: { type: ActionType; payload: string | boolean | string[] })
+ * @returns
+ */
 const RestartGame =
   (
     colorMode: ColorMode,
@@ -39,6 +54,11 @@ const RestartGame =
     dispatch({ type: ActionType.SET_ROUND_OVER, payload: false });
   };
 
+/**
+ * Hook to manage game state
+ *
+ * @returns CheckAnswer, RestartGame
+ */
 export const useColorGuesser = () => {
   const { store, dispatch } = useGameContext();
 

@@ -22,14 +22,15 @@ export const GameReducer = (store: Store, action: Action) => {
           colors: store.colors?.map(color => rgbToHex(color)),
           answer: rgbToHex(store.answer),
         };
-      } else {
+      }
+      if (action.payload === ColorMode.RGB) {
         return {
           ...store,
           colorMode: ColorMode.RGB,
           colors: store.colors?.map(color => hexToRgb(color)),
           answer: hexToRgb(store.answer),
         };
-      }
+      } else return store;
     case ActionType.SET_GAME_MODE:
       return { ...store, gameMode: action.payload };
     default:
