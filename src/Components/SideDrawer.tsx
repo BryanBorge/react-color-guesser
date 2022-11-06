@@ -63,7 +63,6 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
 
   return (
     <SwipeableDrawer
-      disableSwipeToOpen={false}
       disableBackdropTransition={!iOS}
       disableDiscovery={iOS}
       anchor="left"
