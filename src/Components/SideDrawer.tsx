@@ -59,8 +59,12 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
     dispatch,
   } = useGameContext();
 
+  const iOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   return (
     <SwipeableDrawer
+      disableBackdropTransition={!iOS}
+      disableDiscovery={iOS}
       anchor="left"
       open={isOpen}
       onOpen={onClick}
