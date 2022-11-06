@@ -9,7 +9,11 @@ export const GameReducer = (store: Store, action: Action) => {
     case ActionType.SET_COLORS:
       return { ...store, colors: action.payload };
     case ActionType.SET_IS_CORRECT:
-      return { ...store, isCorrectAnswer: action.payload };
+      return {
+        ...store,
+        isCorrectAnswer: action.payload,
+        numberOfTimesPlayed: store.numberOfTimesPlayed + 1,
+      };
     case ActionType.SET_ROUND_OVER:
       return { ...store, isRoundOver: action.payload };
     case ActionType.SET_IS_WRONG:

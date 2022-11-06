@@ -28,7 +28,7 @@ const handleClick = (
  * Displays color mode chips, help and restart buttons
  * @returns
  */
-export const ColorDisplayHeader = () => {
+export const ColorDisplayHeader = ({ onClick }: { onClick: () => void }) => {
   const {
     store: { colorMode },
     dispatch,
@@ -47,7 +47,7 @@ export const ColorDisplayHeader = () => {
         direction="row"
         alignItems="center"
         mx={theme.spacing(1)}>
-        <IconButton>
+        <IconButton onClick={onClick}>
           <MenuIcon />
         </IconButton>
         <Stack direction="row" spacing={1}>

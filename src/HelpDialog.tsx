@@ -7,7 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 export const HelpDialog = ({ open, handleClose }: { open: boolean; handleClose: () => void }) => {
   const theme = useTheme();
   return (
-    <Dialog open={open}>
+    <Dialog open={open} maxWidth="lg">
       <Stack
         justifyContent="space-between"
         direction="row"

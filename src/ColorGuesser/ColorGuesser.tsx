@@ -4,7 +4,6 @@ import { useGameContext } from "../Context/GameContext";
 import { AnswerButton } from "../Components/AnswerButton";
 import { ColorDisplay } from "../Components/ColorDisplay";
 import { useColorGuesser } from "./useColorGuesser";
-import { ColorDisplayHeader } from "../Components/ColorDisplayHeader";
 
 /**
  * Main game component
@@ -28,7 +27,6 @@ export const ColorGuess = () => {
 
   return (
     <>
-      <ColorDisplayHeader />
       <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
         <ColorDisplay />
         <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">

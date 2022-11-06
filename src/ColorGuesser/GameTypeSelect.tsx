@@ -14,12 +14,16 @@ const GameModes: Array<GameModeChip> = [
     tooltip: "Unlmited tries. Uses all colors",
   },
   {
-    type: GameMode.Rounds,
-    tooltip: "Round based elimination. Uses all colors",
+    type: GameMode.ThreeRounds,
+    tooltip: "3 round game. Uses all colors",
   },
   {
-    type: GameMode.SpecificColor,
-    tooltip: "Test your knowledge of one color",
+    type: GameMode.FiveRounds,
+    tooltip: "5 round game. Uses all colors",
+  },
+  {
+    type: GameMode.TenRounds,
+    tooltip: "10 round game. Uses all colors",
   },
 ];
 

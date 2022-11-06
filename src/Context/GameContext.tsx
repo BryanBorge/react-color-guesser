@@ -9,8 +9,28 @@ export enum ColorMode {
 
 export enum GameMode {
   Freeplay = "Freeplay",
-  Rounds = "Rounds",
-  SpecificColor = "Specific Color",
+  ThreeRounds = "3 Rounds",
+  FiveRounds = "5 Rounds",
+  TenRounds = "10 Rounds",
+  Red = "Red",
+  Pink = "Pink",
+  Purple = "Purple",
+  DeepPurple = "Deep Purple",
+  Indigo = "Indigo",
+  Blue = "Blue",
+  LightBlue = "Light Blue",
+  Cyan = "Cyan",
+  Teal = "Teal",
+  Green = "Green",
+  LightGreen = "Light Green",
+  Lime = "Lime",
+  Yellow = "Yellow",
+  Amber = "Amber",
+  Orange = "Orange",
+  DeepOrange = "Deep Orange",
+  Brown = "Brown",
+  Grey = "Grey",
+  BlueGrey = "Blue Grey",
 }
 
 export type Store = {
@@ -21,6 +41,7 @@ export type Store = {
   isRoundOver: boolean;
   colorMode: ColorMode;
   gameMode: GameMode;
+  numberOfTimesPlayed: number;
 };
 
 type GameContextType = {
@@ -42,6 +63,7 @@ const initialState: Store = {
   isRoundOver: false,
   colorMode: ColorMode.HEX,
   gameMode: GameMode.Freeplay,
+  numberOfTimesPlayed: 0,
 };
 
 export const GameProvider = ({ children }: { children: any }) => {
