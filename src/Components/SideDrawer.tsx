@@ -60,7 +60,7 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
   } = useGameContext();
 
   return (
-    <Drawer anchor="left" open={isOpen} onClose={onClick} sx={{}}>
+    <Drawer anchor="left" open={isOpen} onClose={onClick} sx={{ overflowX: "hidden" }}>
       <Stack sx={{ minWidth: "200px", width: "100%", padding: theme.spacing(1) }} spacing={2}>
         <Stack
           justifyContent="space-between"
