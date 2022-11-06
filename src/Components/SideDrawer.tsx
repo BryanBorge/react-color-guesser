@@ -1,6 +1,6 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Stack, IconButton, useTheme, Typography, Drawer } from "@mui/material";
+import { Stack, IconButton, useTheme, Typography, Drawer, SwipeableDrawer } from "@mui/material";
 import { List, ListItemText, ListItemButton, ListItemIcon, Collapse } from "@mui/material";
 import { GameMode, useGameContext } from "../Context/GameContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -60,7 +60,12 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
   } = useGameContext();
 
   return (
-    <Drawer anchor="left" open={isOpen} onClose={onClick} sx={{ overflowX: "hidden" }}>
+    <SwipeableDrawer
+      anchor="left"
+      open={isOpen}
+      onOpen={onClick}
+      onClose={onClick}
+      sx={{ overflowX: "hidden" }}>
       <Stack sx={{ padding: theme.spacing(1) }} spacing={1}>
         <Stack
           justifyContent="space-between"
@@ -113,6 +118,6 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
           </List>
         </Stack>
       </Stack>
-    </Drawer>
+    </SwipeableDrawer>
   );
 };
