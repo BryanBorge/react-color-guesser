@@ -100,7 +100,7 @@ export const SideDrawer = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
                       onClick={() => {
                         dispatch({ type: ActionType.SET_GAME_MODE, payload: color.text });
                       }}
-                      sx={{ borderLeft: color.text === gameMode ? "2px solid blue" : "none" }}>
+                      sx={{ borderLeft: color.text === gameMode ? `2px solid ${color.color}` : "none" }}>
                       <ListItemIcon sx={{ color: color.color }}>
                         <FiberManualRecordIcon />
                       </ListItemIcon>
