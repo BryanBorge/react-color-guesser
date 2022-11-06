@@ -1,6 +1,6 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Stack, IconButton, useTheme, Typography, Drawer, SwipeableDrawer } from "@mui/material";
+import { Stack, IconButton, useTheme, Typography, SwipeableDrawer } from "@mui/material";
 import { List, ListItemText, ListItemButton, ListItemIcon, Collapse } from "@mui/material";
 import { GameMode, useGameContext } from "../Context/GameContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
